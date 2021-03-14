@@ -1,0 +1,11 @@
+<div *ngIf="dataLoaded==false" class="spinner-border text-success" role="status">
+    <span class="visually-hidden">Loading...</span>
+</div>
+
+<ul *ngIf="dataLoaded==true" class="list-group">
+
+    <li class="list-group-item ıtem list-group-item-secondary">Markalar</li>
+
+    <li *ngFor="let brand of brands;" class="list-group-item">{{ brand.brandName}}</li>
+
+</ul>
