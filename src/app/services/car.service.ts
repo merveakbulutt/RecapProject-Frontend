@@ -10,7 +10,8 @@ import { ListResponseModel } from '../models/listResponseModel';
 })
 export class CarService {
 
- apiUrl="https://localhost:44338/api/";
+    apiUrl="https://localhost:44338/api/";
+   
  
   constructor(private httpClient:HttpClient) { }
   
@@ -34,7 +35,7 @@ export class CarService {
    return this.httpClient.get<ListResponseModel<Car>>(newPath);
 
     }
-  
+    
   }
 
 
