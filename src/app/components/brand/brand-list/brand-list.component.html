@@ -1,0 +1,22 @@
+<app-brand-add></app-brand-add>
+<hr>
+<table class="table">
+    <thead style="color: #696969">
+        <th>Id</th>
+        <th>Marka</th>
+        <th></th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let brand of brands">
+            <td>{{ brand.brandId }}</td>
+            <td>{{ brand.brandName}}</td>
+
+            <td><button routerLink="/brands/update/{{brand.brandId}}" type="button" class="btn btn-success"><i
+                        class="fa fa-pencil"></i> Güncelle
+                </button> </td>
+            <td><a class="btn btn-secondary" (click)="deleteBrand(brand)">
+                    <i class="fa fa-trash-o fa-lg"></i> Delete</a></td>
+        </tr>
+    </tbody>
+</table>

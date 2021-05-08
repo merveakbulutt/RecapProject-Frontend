@@ -2,11 +2,20 @@
     <span class="visually-hidden">Loading...</span>
 </div>
 
+<div class="mb-3">
+    <label for="brandFilterText" class="form-label"></label>
+    <input type="text" [(ngModel)]="brandFilterText" class="form-control" id="brandFilterText"
+        placeholder="Marka Ara">
+</div>
+<div *ngIf="brandFilterText.length>2" class="alert alert-success">
+    {{brandFilterText}} aradınız.
+</div>
+
 <ul *ngIf="dataLoaded==true" class="list-group">
 
     <li class="list-group-item ıtem list-group-item-secondary">Markalar</li>
 
-    <li (click)="setCurrentBrand(brand)" [class]="getCurrentBrandClass(brand)" *ngFor="let brand of brands;"
+    <li (click)="setCurrentBrand(brand)" [class]="getCurrentBrandClass(brand)" *ngFor="let brand of brands | brandFilter:brandFilterText "
     routerLink="/cars/brand/{{ brand.brandId}}" >{{ brand.brandName}}</li>
 
 </ul>

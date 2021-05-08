@@ -1,0 +1,63 @@
+<table class="table">
+
+  <thead>
+    <tr style="color: #696969">
+      <th>Marka</th>
+      <th>Renk</th>
+      <th>Model Yılı</th>
+      <th>Kİralama Tarihi</th>
+      <th>Teslim Tarihi</th>
+      <th>Günlük Ücret</th>
+      <th>Toplam Ödenecek Tutar</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>{{car.brandName}}</td>
+      <td>{{car.colorName}}</td>
+      <td>{{car.modelYear}}</td>
+      <td>{{rental.rentDate}}</td>
+      <td>{{rental.returnDate}}</td>
+      <td>{{car.dailyPrice | currency: "₺" }}</td>
+      <td><strong class="text-danger">{{amount | currency: "₺"}}</strong></td>
+    </tr>
+  </tbody>
+
+</table>
+
+<hr>
+
+<h4 class="mb-3" style="text-align: center; ">Ödeme İşlemleri</h4>
+<hr>
+
+<div [formGroup]="paymentAddForm" class="row gy-3">
+  <div class="col-md-6">
+    <label for="cardOwnerName" class="form-label">Kart Sahibinin Adı Soyadı
+    </label>
+    <input type="text" class="form-control" id="cardOwnerName" formControlName="cardOwnerName" placeholder="Ad Soyad"
+      required />
+  </div>
+
+  <div class="col-md-6">
+    <label for="cardNumber" class="form-label"> Kart numarası</label>
+    <input type="text" class="form-control" id="cardNumber" formControlName="cardNumber"
+      placeholder=" örn: 0000 0000 0000 0000" required />
+  </div>
+
+  <div class="col-md-3">
+    <label for="expirationDate" class="form-label">Son Kullanım Tarihi</label>
+    <input type="text" class="form-control" id="expirationDate" formControlName="expirationDate" placeholder="MM/YY"
+      required />
+  </div>
+
+  <div class="col-md-3">
+    <label for="cardCvv" class="form-label">Güvenlik kodu</label>
+    <input type="text" class="form-control" id="cardCvv" formControlName="cardCvv" placeholder="123" required />
+  </div>
+
+  <hr class="my-4" />
+
+  <button class="w-100 btn btn-success btn-lg" (click)="payment()">{{ amount | currency: "₺" }} Ödeme Yap
+  </button>
+</div>

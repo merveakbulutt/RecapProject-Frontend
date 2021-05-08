@@ -1,0 +1,30 @@
+<app-car-add></app-car-add>
+<hr>
+
+<table class="table">
+    <thead style="color: #696969">
+        <th>Id</th>
+        <th>Marka</th>
+        <th>Renk</th>
+        <th>Model Yılı</th>
+        <th>Açıklama</th>
+        <th>Günlük Fiyat</th>
+        <th></th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let car of cars">
+            <td>{{ car.carId }}</td>
+            <td>{{ car.brandName }}</td>
+            <td>{{ car.colorName }}</td>
+            <td>{{ car.modelYear }}</td>
+            <td>{{ car.description }}</td>
+            <td>{{ car.dailyPrice | currency: "₺" }}</td>
+            <td><button type="button" class="btn btn-success"><i class="fa fa-pencil"></i> Güncelle
+                </button> </td>
+            <td><a class="btn btn-secondary" (click)="deleteCar(car)">
+                    <i class="fa fa-trash-o fa-lg"></i> Delete</a></td>
+
+        </tr>
+    </tbody>
+</table>

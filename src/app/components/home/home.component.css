@@ -1,0 +1,110 @@
+#mainSlider{
+   height: 350px;
+   background: url(../../../assets/image/carimg0.jpg)center center no-repeat;
+   background-size: cover;
+   
+}
+.slider{
+width: 100%;
+}
+#mainCaption{
+    height: 350px;
+    background: rgba(0, 0, 0 ,.4);
+}
+.caption{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    color:#fff;
+}
+h1{
+    font-size: 52px;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+}
+.container{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+
+}
+.featuresBody .container{
+    justify-content:space-between ; 
+
+}
+.col3{
+  flex-grow: 1;  
+  width: 33.33%;
+}
+.sectionHeader{ 
+    background: #8fbc8f; 
+    height: 60px;
+    line-height: 60px;
+    color: #fff;
+    display: inline-block;
+    font-size: 20px;
+    text-align: center;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+}
+.sectionArea{
+    padding: 70px 0; 
+}
+.featuresTop{
+    text-align: center;
+}
+.item{
+    padding: 10px 20px;
+}
+.zoom{
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+}
+.zoom img{
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: all 2s ease;
+}
+.item .itemText{
+    text-align: center;
+    padding: 5px;
+    border: 1px solid #8fbc8f ;
+}
+.item:hover .zoom img{
+   transform: scale(1.25);
+}
+h3{
+    font-size: 16px;
+   font-weight: bold;
+    color:#696969 ;
+}
+.item:hover h3{
+    color: #fff;
+}
+.item:hover .itemText{
+    background:#8fbc8f ;
+    color: #fff;
+     transition: all 2s ease;
+}
+.btnDetails{
+    color:#8fbc8f ;
+    text-decoration: none;
+    padding: 5px 10px;
+    border:1px solid #8fbc8f ;
+     transition: all 2s ease;
+}
+.item:hover .btnDetails{
+    color: #fff;
+    border: 1px solid #fff;
+}
+.itemText p{
+    margin:10px 0 ;
+}
+
+

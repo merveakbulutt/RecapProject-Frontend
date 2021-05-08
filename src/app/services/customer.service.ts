@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Customer } from '../models/customer';
 import { ListResponseModel } from '../models/listResponseModel';
 
@@ -10,13 +11,17 @@ import { ListResponseModel } from '../models/listResponseModel';
 })
 export class CustomerService {
 
-  apiUrl="https://localhost:44338/api/customers/getcustomerdetails";
- 
-  constructor(private httpClient:HttpClient) { }
-  
-   getCustomers():Observable<ListResponseModel<Customer>>{
-   return this.httpClient.get<ListResponseModel<Customer>>(this.apiUrl);
-    };
-  
-  
+  apiUrl = environment.apiUrl;
+
+  constructor(private httpClient: HttpClient) { }
+
+  getCustomers(): Observable<ListResponseModel<Customer>> {
+    let newPath = this.apiUrl + 'customers/getcustomerdetails';
+    return this.httpClient.get<ListResponseModel<Customer>>(newPath);
+  }
+  getCustomerById(customerId: number): Observable<ListResponseModel<Customer>> {
+    let newPath = this.apiUrl + 'customers/getcustomerdetailbyid?customerId=' + customerId;
+    return this.httpClient.get<ListResponseModel<Customer>>(newPath);
+  }
+
 }

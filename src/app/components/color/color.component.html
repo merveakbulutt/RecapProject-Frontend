@@ -2,13 +2,20 @@
     <span class="visually-hidden">Loading...</span>
 </div>
 
+<div class="mb-3">
+    <label for="colorFilterText" class="form-label"></label>
+    <input type="text" [(ngModel)]="colorFilterText" class="form-control" id="colorFilterText" placeholder="Renk Ara">
+</div>
+<div *ngIf="colorFilterText.length>2" class="alert alert-success">
+    {{colorFilterText}} aradınız.
+</div>
+
 <ul *ngIf="dataLoaded==true" class="list-group">
 
     <li class="list-group-item ıtem list-group-item-secondary">Renkler</li>
 
-    <li (click)="setCurrentColor(color)"
-        [class]="getCurrentColorClass(color)"
-        *ngFor="let color of colors;" 
-        routerLink="/cars/color/{{color.colorId }}" >{{ color.colorName}}</li>
+    <li (click)="setCurrentColor(color)" [class]="getCurrentColorClass(color)"
+        *ngFor="let color of colors | colorFilter:colorFilterText" routerLink="/cars/color/{{color.colorId }}">{{
+        color.colorName}}</li>
 
 </ul>

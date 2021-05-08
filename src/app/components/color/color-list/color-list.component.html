@@ -1,0 +1,22 @@
+<app-color-add></app-color-add>
+<hr>
+<table class="table">
+    <thead style="color: #696969">
+        <th>Id</th>
+        <th>Renk</th>
+        <th></th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let color of colors">
+            <td>{{ color.colorId }}</td>
+            <td>{{ color.colorName}}</td>
+
+            <td><button routerLink="/colors/update/{{color.colorId}}" type="button" class="btn btn-success"><i
+                        class="fa fa-pencil"></i> Güncelle
+                </button> </td>
+            <td><button type="button" class="btn btn-secondary" (click)="delete(color)"><i
+                        class="fa fa-trash-o fa-lg"></i> Sil</button></td>
+        </tr>
+    </tbody>
+</table>
